@@ -293,3 +293,13 @@ defaults:
       comments: # true
       share: true
       related: true
+  - scope:
+      path: ""
+      type: docs
+    values:
+      layout: docs
+      author_profile: false
+      read_time: true
+      comments: # true
+      share: true
+      related: true
