@@ -110,7 +110,7 @@ author:
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "³ª´Â Å·¿ÕÂ¯ÀÌ´Ù."
   location         : "Seoul, korea"
-  email            : ohs0939@gmail.com
+  email            : "ohs0939@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
