@@ -1,4 +1,4 @@
-# Welcome to Jekyll!
+ï»¿# Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your entire site, values
 # which you are expected to set up once and rarely need to edit after that.
@@ -18,8 +18,8 @@ minimal_mistakes_skin    : "mint" # "default" # "air", "aqua", "contrast", "dark
 locale                   : "ko-KR" # "en-US"
 title                    : "Site Title"
 title_separator          : "-"
-name                     : "±Ã½Ã··±Ã½Ã··"
-description              : "³Ñ³ª±ÍÂúÀº°Í..."
+name                     : "ê¶ì‹œë ê¶ì‹œë "
+description              : "ë„˜ë‚˜ê·€ì°®ì€ê²ƒ..."
 url                      : "https://eething.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -108,7 +108,7 @@ analytics:
 author:
   name             : "Hyunseok Oh"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "³ª´Â Å·¿ÕÂ¯ÀÌ´Ù."
+  bio              : "ë‚˜ëŠ” í‚¹ì™•ì§±ì´ë‹¤."
   location         : "Seoul, korea"
   email            : "ohs0939@gmail.com"
   links:
