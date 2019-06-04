@@ -1,5 +1,5 @@
----
-title: "Ä«Å×°í¸® category"
+ï»¿---
+title: "ì¹´í…Œê³ ë¦¬ category"
 layout: categories
 permalink: /categories/
 author_profile: true
