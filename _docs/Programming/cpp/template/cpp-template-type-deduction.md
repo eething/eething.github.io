@@ -1,4 +1,4 @@
-﻿---
+---
 title: "C++ 템플릿 타입추론"
 date: 2019-05-20 15:30:00 +0900
 tags:
@@ -8,7 +8,7 @@ tags:
 ---
 
 타입 알아내는 방법
-====
+===
 
 * typeid
 	* C++ 표준
@@ -165,7 +165,7 @@ int main()
 {% endhighlight %}
 
 class template type deduction
-====
+---
 * C++17 부터 지원
 * 생성자의 인자를 보고 결정
 * class template type deduction guide

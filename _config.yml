@@ -1,4 +1,4 @@
-﻿# Welcome to Jekyll!
+# Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your entire site, values
 # which you are expected to set up once and rarely need to edit after that.
@@ -108,7 +108,7 @@ analytics:
 author:
   name             : "Hyunseok Oh"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "나는 킹왕짱이다."
+  bio              : "킹왕짱..."
   location         : "Seoul, korea"
   email            : "ohs0939@gmail.com"
   links:
