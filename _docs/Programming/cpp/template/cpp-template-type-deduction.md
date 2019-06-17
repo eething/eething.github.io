@@ -1,5 +1,5 @@
----
-title: "C++ ÅÛÇÃ¸´ Å¸ÀÔÃß·Ğ"
+ï»¿---
+title: "C++ í…œí”Œë¦¿ íƒ€ì…ì¶”ë¡ "
 date: 2019-05-20 15:30:00 +0900
 tags:
   - programming
@@ -7,15 +7,15 @@ tags:
   - template
 ---
 
-Å¸ÀÔ ¾Ë¾Æ³»´Â ¹æ¹ı
+íƒ€ì… ì•Œì•„ë‚´ëŠ” ë°©ë²•
 ====
 
 * typeid
-	* C++ Ç¥ÁØ
-	* const, volatile, reference ÀÎ½Ä ºÒ°¡
+	* C++ í‘œì¤€
+	* const, volatile, reference ì¸ì‹ ë¶ˆê°€
 * boost::type_index
 	* type_id_with_cvr<T>().pretty_name()
-	* º¯¼ö´Â decltype() »ç¿ë
+	* ë³€ìˆ˜ëŠ” decltype() ì‚¬ìš©
 {% highlight cpp %}
 #include <iostream>
 #include <boost\type_index.hpp>
@@ -47,19 +47,19 @@ template argument type deduction
 ====
 
 * type decuction rule
-	* ÄÄÆÄÀÏ·¯°¡ ÇÔ¼ö ÀÎÀÚ¸¦ º¸°í Å¸ÀÔ °áÁ¤
-	* ÇÔ¼ö ÀÎÀÚÀÇ Å¸ÀÔ°ú ¿ÏÀüÈ÷ µ¿ÀÏÇÑ Å¸ÀÔÀ¸·Î °áÁ¤µÇÁö ¾ÊÀ½
-	* °ª Å¸ÀÔ foo(T t)
-		* const, volatile, reference ¸¦ Á¦°Å
-		* ÀÎÀÚ°¡ °¡Áø const ¸¸ Á¦°Å
-	* ÂüÁ¶ Å¸ÀÔ Bar(T& t)
-		* reference ¸¸ Á¦°ÅÇÑ´Ù.
-		* const, volatile Àº À¯Áö
-		* const T& ÀÇ °æ¿ì const Á¦°Å
+	* ì»´íŒŒì¼ëŸ¬ê°€ í•¨ìˆ˜ ì¸ìë¥¼ ë³´ê³  íƒ€ì… ê²°ì •
+	* í•¨ìˆ˜ ì¸ìì˜ íƒ€ì…ê³¼ ì™„ì „íˆ ë™ì¼í•œ íƒ€ì…ìœ¼ë¡œ ê²°ì •ë˜ì§€ ì•ŠìŒ
+	* ê°’ íƒ€ì… foo(T t)
+		* const, volatile, reference ë¥¼ ì œê±°
+		* ì¸ìê°€ ê°€ì§„ const ë§Œ ì œê±°
+	* ì°¸ì¡° íƒ€ì… Bar(T& t)
+		* reference ë§Œ ì œê±°í•œë‹¤.
+		* const, volatile ì€ ìœ ì§€
+		* const T& ì˜ ê²½ìš° const ì œê±°
 	* forwarding reference (T&& t)
-		* lvalue, rvalue ¸ğµÎ Àü´Ş ¹ŞÀ½
-	* ¹è¿­
-		* argument decay ¹ß»ı
+		* lvalue, rvalue ëª¨ë‘ ì „ë‹¬ ë°›ìŒ
+	* ë°°ì—´
+		* argument decay ë°œìƒ
 {% highlight cpp %}
 template<typename T> void foo(T t)
 {
@@ -109,23 +109,23 @@ int main()
 
 = Array Name =
 {% highlight cpp %}
-int n1;        // º¯¼öÀÌ¸§ = n, Å¸ÀÔ = int
+int n1;        // ë³€ìˆ˜ì´ë¦„ = n, íƒ€ì… = int
 int *pN = &n1;
-int n2 = n1;   // ¸ğµç º¯¼ö´Â µ¿ÀÏÇÑ Å¸ÀÔÀÇ º¯¼ö·Î ÃÊ±âÈ­(º¹»ç) µÉ ¼ö ÀÖ´Ù.
+int n2 = n1;   // ëª¨ë“  ë³€ìˆ˜ëŠ” ë™ì¼í•œ íƒ€ì…ì˜ ë³€ìˆ˜ë¡œ ì´ˆê¸°í™”(ë³µì‚¬) ë  ìˆ˜ ìˆë‹¤.
 
-int arr1[3] = { 1, 2, 3 }; // º¯¼öÀÌ¸§ = arr1, Å¸ÀÔ = int[3]
+int arr1[3] = { 1, 2, 3 }; // ë³€ìˆ˜ì´ë¦„ = arr1, íƒ€ì… = int[3]
 int arr2[3] = arr1;        // error
 
-// ¹è¿­ÀÇ ÀÌ¸§Àº Ã¹¹øÂ° ¿ä¼ÒÀÇ ÁÖ¼Ò·Î ¾Ï½ÃÀû Çüº¯È¯ µÈ´Ù.
-int *pArr0 = arr1;         // ¹è¿­ÀÇ ¿ä¼ÒÀÇ ÁÖ¼Ò
-int (*pArr1)[3] = &arr1;   // ¹è¿­ÀÇ ÁÖ¼Ò
+// ë°°ì—´ì˜ ì´ë¦„ì€ ì²«ë²ˆì§¸ ìš”ì†Œì˜ ì£¼ì†Œë¡œ ì•”ì‹œì  í˜•ë³€í™˜ ëœë‹¤.
+int *pArr0 = arr1;         // ë°°ì—´ì˜ ìš”ì†Œì˜ ì£¼ì†Œ
+int (*pArr1)[3] = &arr1;   // ë°°ì—´ì˜ ì£¼ì†Œ
 // pArr0 + 1 => pArr0 + 4  // sizeof(int)
 // pArr1 + 1 => pArr1 + 12 // sizeof(int[3])
 *pArr0 = 10;
 (*pArr1)[0] = 10;
 {% endhighlight %}
 
-* Å©±â°¡ ´Ù¸¥ ¹è¿­Àº ´Ù¸¥ Å¸ÀÔ
+* í¬ê¸°ê°€ ë‹¤ë¥¸ ë°°ì—´ì€ ë‹¤ë¥¸ íƒ€ì…
 {% highlight cpp %}
 template<typename T> void foo(T a, T b) {}
 template<typename T> void bar(T& a, T& b) {}
@@ -166,8 +166,8 @@ int main()
 
 class template type deduction
 ====
-* C++17 ºÎÅÍ Áö¿ø
-* »ı¼ºÀÚÀÇ ÀÎÀÚ¸¦ º¸°í °áÁ¤
+* C++17 ë¶€í„° ì§€ì›
+* ìƒì„±ìì˜ ì¸ìë¥¼ ë³´ê³  ê²°ì •
 * class template type deduction guide
 {% highlight cpp %}
 // C++17
@@ -202,7 +202,7 @@ int main()
 
 Object Generator Idioms
 ====
-* Å¬·¡½º ÅÛÇÃ¸´ÀÇ °´Ã¼¸¦ »ı¼ºÇÏ´Â ÇÔ¼ö ÅÛÇÃ¸´
+* í´ë˜ìŠ¤ í…œí”Œë¦¿ì˜ ê°ì²´ë¥¼ ìƒì„±í•˜ëŠ” í•¨ìˆ˜ í…œí”Œë¦¿
 {% highlight cpp %}
 template<typename T> void foo(T t) {}
 
@@ -227,14 +227,14 @@ int main()
     foo( pair<int, double>(1, 3.14) );
     foo( make_pair(1, 3.4) );
 
-    foo( pair(1, 3.4) ); // C++17, ¿ì¿Õ ÆíÇÏ´Ù+_+
+    foo( pair(1, 3.4) ); // C++17, ìš°ì™• í¸í•˜ë‹¤+_+
 }
 {% endhighlight %}
 
 Identity
 ====
-* ÇÔ¼öÅÛÇÃ¸´¿¡¼­ ÄÄÆÄÀÏ·¯¿¡ ÀÇÇÑ Å¸ÀÔ Ãß·ĞÀ» ¸·À½
-* »ç¿ëÀÚ°¡ ¹İµå½Ã Å¸ÀÔÀ» Á¤ÇÏµµ·Ï ÇÔ
+* í•¨ìˆ˜í…œí”Œë¦¿ì—ì„œ ì»´íŒŒì¼ëŸ¬ì— ì˜í•œ íƒ€ì… ì¶”ë¡ ì„ ë§‰ìŒ
+* ì‚¬ìš©ìê°€ ë°˜ë“œì‹œ íƒ€ì…ì„ ì •í•˜ë„ë¡ í•¨
 {% highlight cpp %}
 template<typename T> struct identity
 {
