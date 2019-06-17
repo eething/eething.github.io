@@ -8,26 +8,34 @@ tags:
 ---
 
 template instantiation
-====
+-----
+
+template instantiation
+----
+
+template instantiation
+---
+
+template instantiation
+--
 
 * explicit instantiation (명시적 인스턴스화)
 	* 정의를 cpp 에서 함
 	* 정의를 숨길 수 있음
 	* 원하지 않는 타입 인스턴스화 방지
-	
-	* test.h
-{% highlight cpp %}
+	{% highlight cpp %}
+// test.h
 template<typename T>
 class Test
 {
 public:
-    foo();
+	foo();
 };
 
 template<typename T> T square(T a);
 {% endhighlight %}
 	* test.cpp
-{% highlight cpp %}
+	{% highlight cpp %}
 template <typename T>
 void Test<T>::foo()
 {
