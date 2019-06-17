@@ -14,7 +14,7 @@ template instantiation
 	* 정의를 cpp 에서 함
 	* 정의를 숨길 수 있음
 	* 원하지 않는 타입 인스턴스화 방지
-	* {% highlight cpp %}
+{% highlight cpp %}
 // test.h
 template<typename T>
 class Test
@@ -25,7 +25,8 @@ public:
 
 template<typename T> T square(T a);
 {% endhighlight %}
-	* {% highlight cpp %}
+
+{% highlight cpp %}
 // test.cpp
 template <typename T>
 void Test<T>::foo()
@@ -48,7 +49,8 @@ template<typename T> T square(T a) { return a * a; }
 //template int square<>(int);
 template int square(int);
 {% endhighlight %}
-	* {% highlight cpp %}
+
+{% highlight cpp %}
 // main.cpp
 #include "test.h"
 int main()
