@@ -1,3 +1,11 @@
+---
+title: "C++ 템플릿 타입추론"
+date: 2019-05-20 15:30:00 +0900
+tags:
+  - programming
+  - cpp
+  - template
+---
 
 타입 알아내는 방법
 ====
