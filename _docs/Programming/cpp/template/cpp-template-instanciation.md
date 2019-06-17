@@ -8,22 +8,13 @@ tags:
 ---
 
 template instantiation
------
-
-template instantiation
-----
-
-template instantiation
 ---
-
-template instantiation
---
 
 * explicit instantiation (명시적 인스턴스화)
 	* 정의를 cpp 에서 함
 	* 정의를 숨길 수 있음
 	* 원하지 않는 타입 인스턴스화 방지
-	{% highlight cpp %}
+	* {% highlight cpp %}
 // test.h
 template<typename T>
 class Test
@@ -34,8 +25,8 @@ public:
 
 template<typename T> T square(T a);
 {% endhighlight %}
-	* test.cpp
-	{% highlight cpp %}
+	* {% highlight cpp %}
+// test.cpp
 template <typename T>
 void Test<T>::foo()
 {
@@ -57,8 +48,8 @@ template<typename T> T square(T a) { return a * a; }
 //template int square<>(int);
 template int square(int);
 {% endhighlight %}
-	* main.cpp
-{% highlight cpp %}
+	* {% highlight cpp %}
+// main.cpp
 #include "test.h"
 int main()
 {
@@ -82,8 +73,6 @@ int main()
 	t1.foo(); // foo 만 인스턴스화 함(lazy)
 }
 {% endhighlight %}
-
-
 
 * lazy instantiation
 	* 클래스 템플릿은 사용하지 않은 멤버함수는 인스턴스화 하지 않음
