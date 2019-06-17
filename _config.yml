@@ -300,7 +300,7 @@ defaults:
       share: true
       related: true
   - scope:
-      path: ""
+      path: "_docs"
       type: docs
     values:
       layout: single
