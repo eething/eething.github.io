@@ -300,11 +300,11 @@ defaults:
       share: true
       related: true
   - scope:
-      path: ""
+      path: "_docs"
       type: docs
     values:
-      layout: docs
-      author_profile: false
+      layout: single
+      author_profile: true
       read_time: true
       comments: # true
       share: true
