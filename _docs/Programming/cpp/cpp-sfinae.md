@@ -86,7 +86,7 @@ int main()
     print(n);
     print(&n);
 }
-{$ endhighlight %}
+{% endhighlight %}
 
 * 함수 찾는 순서 ex) foo( 3.14f );
 	1. exactly matching
