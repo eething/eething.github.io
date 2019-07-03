@@ -8,15 +8,59 @@ tags:
 ---
 
 Object Initilization
----
-
+===
 * C++98/03 의 문제점
 	* 변수 종류에 따라 초기화 방법이 다름
 	* 배열 초기화 불가
-												* 클래스 멤버
-												* 동적 메모리 할당
+	* 클래스 멤버
+	* 동적 메모리 할당
+
+* Uniform Initialization
+	* brace init
+	* 객체의 종류에 상관없이 중괄호 {} 를 사용해서 초기화
+	* 데이터 손실 방지 prevent narrow
+
+{% highlight cpp %}
+class Test
+{
+	int x[3] { 1, 2, 3 };
+};
+
+int main()
+{
+	Test t;
+	int* p = new int[3] { 1, 2, 3 };
+	vector<int> v { 1, 2, 3 };
+
+	// direct initialization
+	int n2(0);
+	int n1    { 0 };
+	int a1[3] { 1, 2, 3 };
+	Str s1    { 1, 2 };
+	Cls c1    { 1, 2 };
+
+	// copy initialization
+	int n2    = 0;
+	int n2    = { 0 };
+	int a2[3] = { 1, 2, 3 };
+	Str s2    = { 1, 2 };
+	Cls c2    = { 1, 2 };
+
+	int no = 1.2;     // ok
+	int ne = { 1.2 }; // error
+	char co = 300;    // ok
+	char ce = { 300 };// error
+}
+{% endhighlight %}
 
 
+초기화 종류
+===
+
+Default Initialization
+---
+* Test t1;
+* new Test;
 
 
 Value initialization
@@ -30,6 +74,9 @@ Value initialization
 * Test::Test : data{} {}
 
 
+Default VS Value
+---
+{% highlight cpp %}
 int n1;   // default initialization, 쓰레기값
 int n2{}; // value initialization,   0
 int n3(); // 함수 선언
@@ -37,7 +84,6 @@ int n3(); // 함수 선언
 int* p1 = new int; // default, 쓰레기값
 int* p2 = new int(); // value, 0
 int* p3 = new int{}; // value, 0
-
 
 class Test1
 {
@@ -50,10 +96,10 @@ class Test2
     Test2() {}
 };
 
-Test1 t1;   // defau init, 쓰레기값
+Test1 t1;   // default init, 쓰레기값
 Test1 t2{}; // value init, 0
 Test2 t3{}; // value init, 쓰레기값
-
+{% endhighliehg %}
 
 
 Direct initialization
@@ -69,7 +115,6 @@ Direct initialization
 	* static_cast<Test>(t1)	// prvalue???
 
 
-
 Copy initialization
 ---
 * Test t1 = t0;
@@ -79,7 +124,6 @@ Copy initialization
 * throw t0;
 * catch (Test t0)
 * Test arr[2] = { t1, t2 };
-
 
 
 List initialization
@@ -246,7 +290,6 @@ u g = { .a = 1, .b = "asdf" }; // error, union은 하나만...
 {% endhighlight %}
 
 
-
 Reference initialization
 ---
 * Test &t1 = t0;
@@ -270,11 +313,11 @@ Reference initialization
 	* Class::Class(...) : data(t) {}
 
 
+초기화 리스트, default member initializer
+---
+* 초기화 리스트 먼저 체크
+* 그다음 default member initializer
 
-
-
-
-* 초기화 리스트에 default member initializer 로 초기화
 {% highlight cpp %}
 int c = 0;
 class Test
@@ -297,47 +340,10 @@ int main()
 {% endhighlight %}
 
 
-
-
-
-* uniform initialization
-{% highlight cpp %}
-int main()
-{
-    // direct initialization
-    int n2(0);
-    int n1    { 0 };
-    int a1[3] { 1, 2, 3 };
-    Str s1    { 1, 2 };
-    Cls c1    { 1, 2 };
-
-    // copy initialization
-    int n2    = 0;
-    int n2    = { 0 };
-    int a2[3] = { 1, 2, 3 };
-    Str s2    = { 1, 2 };
-    Cls c2    = { 1, 2 };
-
-    int no = 1.2      // ok
-    int ne = { 1.2 }; // error
-    char co = 300;    // ok
-    char ce = { 300 };// error
-}
-{% endhighlight %}
-
-
-
-* default initialization
-	* Test t1;
-	* new Test;
-
-
-
-
-
-* explicit
-	* 변환생성자 불가
-	* copy initialization 불가
+explicit
+---
+* 변환생성자 불가
+* copy initialization 불가
 
 {% highlight cpp %}
 class Test
@@ -362,32 +368,3 @@ int main()
 	Test t9 = {}; // error, explicit
 }
 {% endhighlight %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-= 초기화 문제점 해결
-
-class Test
-{
-    int x[3] { 1, 2, 3 };
-};
-
-int main()
-{
-    Test t;
-    int* p = new int[3] { 1, 2, 3 };
-    vector<int> v { 1, 2, 3 };
-}
