@@ -63,7 +63,7 @@ Default Initialization
 * new Test;
 
 
-Value initialization
+Value Initialization
 ---
 * Test();
 * Test{};
@@ -87,35 +87,34 @@ int* p3 = new int{}; // value, 0
 
 class Test1
 {
-    int x;
-    Test1() = default;
+	int x;
+	Test1() = default;
 };
 class Test2
 {
-    int x;
-    Test2() {}
+	int x;
+	Test2() {}
 };
 
 Test1 t1;   // default init, 쓰레기값
 Test1 t2{}; // value init, 0
 Test2 t3{}; // value init, 쓰레기값
-{% endhighliehg %}
+{% endhighlight %}
 
 
-Direct initialization
+Direct Initialization
 ---
-* direct initialization
-	* Test t1(1, 2);
-	* Test t1{ 1, 2 }; // non-class type with a single brace-enclosed initializer
-	* Test(1, 2) // prvalue???
-	* Test(t1)
-	* new Test(1,...) // ???
-	* Test::Test(int a) : data(a) {}
-	* [a]() { };
-	* static_cast<Test>(t1)	// prvalue???
+* Test t1(1, 2);
+* Test t1{ 1, 2 }; // non-class type with a single brace-enclosed initializer
+* Test(1, 2) // prvalue???
+* Test(t1)
+* new Test(1,...) // ???
+* Test::Test(int a) : data(a) {}
+* [a]() { };
+* static_cast<Test>(t1)	// prvalue???
 
 
-Copy initialization
+Copy Initialization
 ---
 * Test t1 = t0;
 * Test t2 = { t0 }; // (until C++11)
@@ -126,7 +125,7 @@ Copy initialization
 * Test arr[2] = { t1, t2 };
 
 
-List initialization
+List Initialization
 ---
 * direct-list-initialization
 	* Test t1 { 1, 2 };
@@ -290,7 +289,7 @@ u g = { .a = 1, .b = "asdf" }; // error, union은 하나만...
 {% endhighlight %}
 
 
-Reference initialization
+Reference Initialization
 ---
 * Test &t1 = t0;
 * Test &t2(t0);
