@@ -6,8 +6,8 @@ tags:
   - cpp
 ---
 
-* {% _posts/Programming/cpp/2019-05-11-cpp-modern-cpp-11 %}
-* {% _posts/Programming/cpp/2019-05-14-cpp-modern-cpp-14 %}
-* {% _posts/Programming/cpp/2019-05-17-cpp-modern-cpp-17 %}
-* {% _posts/Programming/cpp/2019-05-20-cpp-modern-cpp-20 %}
+* {% post_url /Programming/cpp/2019-05-11-cpp-modern-cpp-11 %}
+* {% post_url /Programming/cpp/2019-05-14-cpp-modern-cpp-14 %}
+* {% post_url /Programming/cpp/2019-05-17-cpp-modern-cpp-17 %}
+* {% post_url /Programming/cpp/2019-05-20-cpp-modern-cpp-20 %}
 * C++??
