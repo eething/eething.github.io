@@ -32,38 +32,3 @@ auto fact_error(int i)
 	return i;	
 }
 {% endhighlight %}
-
-* decltype(auto)
-	* auto 를 쓰지만 decltype 방식을 쓰고 싶을 때 사용
-	* C++11 의 trailing return type 를 생략 가능하게 해줌
-{% highlight cpp %}
-int x = 0;
-auto f1()					{ return (x); }
-auto f2() -> decltype(x)	{ return x; }
-auto f3() -> decltype((x))	{ return x; }
-decltype(auto) f4()			{ return x; }
-decltype(auto) f5()			{ return (x); }
-
-int main()
-{
-	f1(); // int  f1();
-	f2(); // auto f2() -> int
-	f3(); // auto f3() -> int&
-	f4(); // int  f4();
-	f5(); // int& f5();
-}
-{% endhighlight %}
-
-constexpr function 에서의 제약 완화
----
-* 변수 - 아래사항 빼고 다 사용 가능
-	 * static
-	 * thread_local
-	 * 초기화 안된 변수
-* if, switch, 루프문 사용 가능
-* goto 사용불가
-
-* C++11 에서는 (non-static)멤버함수는 constexpr 을 써도 const 로 취급됨
-* C++14 에서는 (non-static)멤버함수가 constexpr 이지만 const 가 아닐 수 있음
-
-
