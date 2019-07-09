@@ -34,7 +34,8 @@ auto fact_error(int i)
 {% endhighlight %}
 
 * decltype(auto)
-	* [auto 와 decltype 의 타입추론방식은 다르다.]({% link _docs/Programming/cpp/cpp-auto.md %})
+	* auto 와 decltype 의 타입추론방식은 다르다.
+	* []({% link _docs/Programming/cpp/cpp-auto.md %})
 	* auto 를 쓰지만 decltype 방식을 쓰고 싶을 때 사용
 	* C++11 의 trailing return type 를 생략 가능하게 해줌
 {% highlight cpp %}
