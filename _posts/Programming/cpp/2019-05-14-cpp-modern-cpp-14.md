@@ -132,8 +132,9 @@ auto l2 = [value = std::move(ptr)] { return *value; };
 {% endhighlight %}
 
 
-[Attributes]({% link _docs/Programming/cpp/cpp-attributes.md %})
+Attributes
 ---
+* [Attributes]({% link _docs/Programming/cpp/cpp-attributes.md %})
 * ```[[deprecated]]```
 
 
