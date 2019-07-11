@@ -9,20 +9,20 @@ tags:
 C++17
 ===
 
-Á¦°ÅµÊ
+ì œê±°ë¨
 ---
-* »ïÁßÀÚ
+* ì‚¼ì¤‘ì
 * std::auto_ptr
 * std::random_shuffle
-* ¿À·¡µÈ function adaptors // <functional>
-* register // Àü¿¡ ÀÌ¹Ì deprecated µÇ¾ú¾úÀ½
+* ì˜¤ë˜ëœ function adaptors // <functional>
+* register // ì „ì— ì´ë¯¸ deprecated ë˜ì—ˆì—ˆìŒ
 
 
-»õ·Î¿î ¹®¹ı
+ìƒˆë¡œìš´ ë¬¸ë²•
 ---
 * static_assert
 
-* template template parameter ¿¡¼­ class ´ë½Å typename »ç¿ë°¡´É
+* template template parameter ì—ì„œ class ëŒ€ì‹  typename ì‚¬ìš©ê°€ëŠ¥
 {% highlight cpp %}
 template<typename T> class Test {};
 
@@ -33,7 +33,7 @@ class TTP
 };
 {% endhighlight %}120
 
-* auto Å¸ÀÔÃß·Ğ :braced-init-list
+* auto íƒ€ì…ì¶”ë¡  :braced-init-list
 {% highlight cpp %}
 auto x1 = { 1 };	// std::initializer_list<int>
 auto x2 = { 1, 2 };	// std::initializer_list<int>
@@ -44,7 +44,7 @@ auto x6{ 1, 2 };	// error: not a single element
 
 * nested namespace
 {% highlight cpp %}
-// ±âÁ¸¹æ½Ä
+// ê¸°ì¡´ë°©ì‹
 namespace A { namespace B { namespace C { ... } } }
 
 // C++17
@@ -52,22 +52,22 @@ namespace A::B::C { ... }
 {% endhighlight %}
 
 Attribute
-	* namespace ¿Í enum ¿¡ attribute »ç¿ë °¡´É
+	* namespace ì™€ enum ì— attribute ì‚¬ìš© ê°€ëŠ¥
 	* [[fallthrough]]
 	* [[maybe_unused]]
 	* [[nodiscard]]
 
-* ¹®ÀÚ ¸®ÅÍ·² Ãß°¡
+* ë¬¸ì ë¦¬í„°ëŸ´ ì¶”ê°€
 	* u8 : UTF-8 character literals
-	* C++11 ºÎÅÍ ÀÖ´ø °ÍÀº UTF-8 string literals
-	* 1¹ÙÀÌÆ®, ASCII¸¸ ÀúÀå°¡´É
+	* C++11 ë¶€í„° ìˆë˜ ê²ƒì€ UTF-8 string literals
+	* 1ë°”ì´íŠ¸, ASCIIë§Œ ì €ì¥ê°€ëŠ¥
 
 * Hexadecimal floating-point literals
 	* 0xDEADp12
 	* 0X0p-12
 
 
-¸ğµç non-type ÅÛÇÃ¸´ ÀÎÀÚ¿¡ ´ëÇÑ »ó¼ö Æò°¡[20]
+ëª¨ë“  non-type í…œí”Œë¦¿ ì¸ìì— ëŒ€í•œ ìƒìˆ˜ í‰ê°€[20]
 
 * Fold expressions
 
@@ -75,20 +75,20 @@ Attribute
 * Structured binding
 	* auto [a, b] = t0;
 
-* switch¹®¿¡¼­ÀÇ if¿Í switch ÃÊ±âÈ­
+* switchë¬¸ì—ì„œì˜ ifì™€ switch ì´ˆê¸°í™”
 
-* prvalue À¸·Î Copy Initilization ÀÌ³ª Direct Initialization À» ÇÏ¸é
-	* prvalueÀÇ º¹»ç »ı¼ºÀÚ³ª ÀÌµ¿ »ı¼ºÀÚ°¡ È£ÃâµÇÁö ¾ÊÀ½
-	* copy elision Âü°í
+* prvalue ìœ¼ë¡œ Copy Initilization ì´ë‚˜ Direct Initialization ì„ í•˜ë©´
+	* prvalueì˜ ë³µì‚¬ ìƒì„±ìë‚˜ ì´ë™ ìƒì„±ìê°€ í˜¸ì¶œë˜ì§€ ì•ŠìŒ
+	* copy elision ì°¸ê³ 
 
-* over-aligned ¸Ş¸ğ¸® ÇÒ´ç
-	* [ÇÏ.. ¹º¼Ò¸°Áö-_-](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0035r4.html)
+* over-aligned ë©”ëª¨ë¦¬ í• ë‹¹
+	* [í•˜.. ë­”ì†Œë¦°ì§€-_-](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0035r4.html)
 
 
 * CTAD, Class Template Argumaent Deduction
-	* »ı¼ºÀÚ Ãß·Ğ °¡ÀÌµå
+	* ìƒì„±ì ì¶”ë¡  ê°€ì´ë“œ
 
-* inline º¯¼ö
+* inline ë³€ìˆ˜
 {% highlight cpp %}
 // Test.h
 class Test
@@ -129,10 +129,10 @@ int main()
 
 
 * __cplusplus => 201703L
-	* VisualStudio 2017 /std:c++latest ¿¡¼­´Â ¾ÆÁ÷ 199711
-	* gcc ´Â ÄÄÆÄÀÏ·¯ ¿É¼Ç¿¡ µû¶ó 199711, 201103, 201300, 201402 µîµî...
+	* VisualStudio 2017 /std:c++latest ì—ì„œëŠ” ì•„ì§ 199711
+	* gcc ëŠ” ì»´íŒŒì¼ëŸ¬ ì˜µì…˜ì— ë”°ë¼ 199711, 201103, 201300, 201402 ë“±ë“±...
 
-* Exception µµ ÇÔ¼ö Å¸ÀÔ(½Ã±×´ÏÃÄ?) ¿¡ Æ÷ÇÔµÊ
+* Exception ë„ í•¨ìˆ˜ íƒ€ì…(ì‹œê·¸ë‹ˆì³?) ì— í¬í•¨ë¨
 {% highlight cpp %}
 void foo_noex() noexcept//(true)
 {}
@@ -157,11 +157,11 @@ void foo()
 {% endhighlight %}
 
 
-¶óÀÌºê·¯¸®
+ë¼ì´ë¸ŒëŸ¬ë¦¬
 ---
 * std::string_view
 	* read-only
-	* ¼ÒÀ¯±Ç ¾ø´Â ·¹ÆÛ·±½º
+	* ì†Œìœ ê¶Œ ì—†ëŠ” ë ˆí¼ëŸ°ìŠ¤
 
 * std::optional
 {% highlight cpp %}
@@ -186,7 +186,7 @@ int main()
 * std::any
 
 * std::uncaught_exceptions
-	* std::uncaught_exception ¸¦ ´ëÃ¼
+	* std::uncaught_exception ë¥¼ ëŒ€ì²´
 
 * try_emplace, insert_or_assign
 	* std::map std::unordered_map
@@ -194,7 +194,7 @@ int main()
 * std::size, std::empty, std::data
 
 * contiguous iterators
-	* random access iterators ÀÇ ÀçÁ¤ÀÇ?
+	* random access iterators ì˜ ì¬ì •ì˜?
 	* *(iter + 3) == *(&(*iter) + 3)
 
 * boost::filesystem
@@ -229,8 +229,8 @@ int main()
 
 {% endhighlight %}
 
-ÄÄÆÄÀÏ·¯ Áö¿ø
+ì»´íŒŒì¼ëŸ¬ ì§€ì›
 ---
 * gcc 7
 * Clang 5
-* Visual Studio 2017 15.7 (MSVC 19.14) // 100% ´Â ¾Æ´Ñµí?
+* Visual Studio 2017 15.7 (MSVC 19.14) // 100% ëŠ” ì•„ë‹Œë“¯?
