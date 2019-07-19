@@ -12,6 +12,7 @@ C++17
 제거됨
 ---
 * 삼중자
+	* ??= (#), ??/ (\), ??' (^), ??( ([), ??) (]), ??! (|), ??< ({), ??> (}), ??- (~)
 * std::auto_ptr
 * std::random_shuffle
 * 오래된 function adaptors // <functional>
@@ -20,7 +21,9 @@ C++17
 
 새로운 문법
 ---
-* static_assert
+* static_assert - 뒤에 메시지 안써도 됨
+	* static_assert( constant-expression );
+	* static_assert( constant-expression , string-literal );
 
 * template template parameter 에서 class 대신 typename 사용가능
 {% highlight cpp %}
@@ -31,7 +34,7 @@ class TTP
 {
 	C<U> data;
 };
-{% endhighlight %}120
+{% endhighlight %}
 
 * auto 타입추론 :braced-init-list
 {% highlight cpp %}
@@ -51,7 +54,7 @@ namespace A { namespace B { namespace C { ... } } }
 namespace A::B::C { ... }
 {% endhighlight %}
 
-Attribute
+* [Attributes]({% link _docs/Programming/cpp/cpp-attributes.md %})
 	* namespace 와 enum 에 attribute 사용 가능
 	* [[fallthrough]]
 	* [[maybe_unused]]
@@ -67,15 +70,41 @@ Attribute
 	* 0X0p-12
 
 
-모든 non-type 템플릿 인자에 대한 상수 평가[20]
+* 모든 non-type 템플릿 인자에 대한 상수 평가
+{% highlight cpp %}
+int arr[10];
+struct S
+{
+	int mData;
+	static int sData;
+} s;
+
+template<int* p> class Test {};
+
+Test<&arr[2]>	t1;	// error: address of array element
+Test<&s.mData>	t2;	// error: address of non-static member
+Test<&s.sData>	t3;	// error: &S::s must be used -> OK: address of static member
+Test<&S::sData>	t4;	// OK: address of static member
+{% endhighlight %}
 
 * Fold expressions
 
 * if constexpr
+
 * Structured binding
 	* auto [a, b] = t0;
 
-* switch문에서의 if와 switch 초기화
+* if, switch 초기화
+{% highlight cpp %}
+if (Test t; t.foo())
+	cout << t.bar(); << endl;
+
+{
+	Test t;
+	if (t.foo())
+		cout << t.bar(); << endl;
+}	// t.~Test();
+{% endhighlight %}
 
 * prvalue 으로 Copy Initilization 이나 Direct Initialization 을 하면
 	* prvalue의 복사 생성자나 이동 생성자가 호출되지 않음
@@ -86,7 +115,7 @@ Attribute
 
 
 * CTAD, Class Template Argumaent Deduction
-	* 생성자 추론 가이드
+	* [생성자 추론 가이드]({% link _docs/Programming/cpp/template/cpp-template-type-deduction.md %})
 
 * inline 변수
 {% highlight cpp %}
