@@ -16,7 +16,7 @@ tags:
 * 목적 : 문자열 길이를 저장하고자 하다가 생긴 문제를 해결
 	* 엔진 초기화가 되지 않은 상태에서
 	* 파일 범위의 변수에(std::string) 값을 넣다가 메모리를 건드림
-	* const char 혹은 char[] 로 저장하고 compile-time 에 길이를 넣고싶음
+	* const char* 혹은 char[] 로 저장하고 compile-time 에 길이를 넣고싶음
 
 
 constexpr 함수
@@ -121,7 +121,7 @@ void main()
 	* constexpr 변수에 넣으면 compile-time 에 넣음
 
 {% highlight cpp %}
-void main2()
+void main()
 {
     test(test(C_length("asdf")));
         // push     offset string "asdf"
@@ -233,7 +233,6 @@ void main()
         // call     test
         // add      esp, 4
 }
-
 {% endhighlight %}
 
 
