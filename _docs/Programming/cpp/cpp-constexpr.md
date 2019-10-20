@@ -16,7 +16,7 @@ tags:
 * 목적 : 문자열 길이를 저장하고자 하다가 생긴 문제를 해결
 	* 엔진 초기화가 되지 않은 상태에서
 	* 파일 범위의 변수에(std::string) 값을 넣다가 메모리를 건드림
-	* char* 혹은 char[] 로 저장하고 compile-time 에 길이를 넣고싶음
+	* const char 혹은 char[] 로 저장하고 compile-time 에 길이를 넣고싶음
 
 
 constexpr 함수
@@ -330,7 +330,7 @@ void main()
 {% endhighlight %}
 
 * PrintAttr 에 파라미터 한개만 전달하고 싶음
-* 어차피 객체? 푸시?
+	* 메모리 상에 들고 있어야 한다.
 
 {% highlight cpp %}
 struct AttrValue
