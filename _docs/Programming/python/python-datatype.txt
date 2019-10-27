@@ -1,5 +1,10 @@
-
-
+---
+title: "Python 기초 - 자료형"
+date: 2019-10-28 09:30:00 +0900
+tags:
+  - programming
+  - python
+---
 
 시퀀스 자료형
 ===
