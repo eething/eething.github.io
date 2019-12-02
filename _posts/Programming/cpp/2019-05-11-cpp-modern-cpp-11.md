@@ -74,16 +74,15 @@ template
 * [Lambda]({% link _docs/Programming/cpp/cpp-lambda.md %})
 * [Literal]({% link _docs/Programming/cpp/cpp-literal.md %})
 * alignof, alignas
-```
-						//
-						alignas(alignof(float)) unsigned char c[sizeof(float)]
-						alignas(4) struct Test
-						{
-						char a;
-						int b;
-						};
-						//
-```
+{% highlight cpp %}
+alignas(alignof(float)) unsigned char c[sizeof(float)]
+
+alignas(4) struct Test
+{
+	char a;
+	int b;
+};
+{% endhighlight %}
 
 * 멀티태스킹 메모리 모델
 	* TLS
@@ -96,7 +95,6 @@ template
 
 STL
 ---
-
 * thread
 * tuple
 * hash table

@@ -12,7 +12,8 @@ C++17
 제거됨
 ---
 * 삼중자
-	* ??= (#), ??/ (\), ??' (^), ??( ([), ??) (]), ??! (|), ??< ({), ??> (}), ??- (~)
+	* ```??= (#), ??/ (\), ??' (^), ??( ([), ??) (]), ??! (|), ??< ({), ??> (}), ??- (~)
+	```
 * std::auto_ptr
 * std::random_shuffle
 * 오래된 function adaptors // <functional>
@@ -36,7 +37,7 @@ class TTP
 };
 {% endhighlight %}
 
-* auto 타입추론 :braced-init-list
+* auto 타입추론 : braced-init-list
 {% highlight cpp %}
 auto x1 = { 1 };	// std::initializer_list<int>
 auto x2 = { 1, 2 };	// std::initializer_list<int>
@@ -65,10 +66,9 @@ namespace A::B::C { ... }
 	* C++11 부터 있던 것은 UTF-8 string literals
 	* 1바이트, ASCII만 저장가능
 
-* Hexadecimal floating-point literals
+* 16진법 부동소수점 리터럴
 	* 0xDEADp12
-	* 0X0p-12
-
+	* 0x123.ABCp-4
 
 * 모든 non-type 템플릿 인자에 대한 상수 평가
 {% highlight cpp %}
@@ -83,7 +83,7 @@ template<int* p> class Test {};
 
 Test<&arr[2]>	t1;	// error: address of array element
 Test<&s.mData>	t2;	// error: address of non-static member
-Test<&s.sData>	t3;	// error: &S::s must be used -> OK: address of static member
+Test<&s.sData>	t3;	// OK: address of static member
 Test<&S::sData>	t4;	// OK: address of static member
 {% endhighlight %}
 
@@ -123,7 +123,7 @@ if (Test t; t.foo())
 class Test
 {
 	static const int a = 1;
-    inline static int b = 2;
+	inline static int b = 2;
 };
 //extern Test t;
 inline Test t;
