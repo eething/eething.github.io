@@ -255,8 +255,8 @@ int main()
 {
 	foo( 1, 2, "str");
 }
-
 {% endhighlight %}
+
 
 컴파일러 지원
 ---
