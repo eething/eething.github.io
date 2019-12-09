@@ -106,7 +106,7 @@ void TEST<int>::bar()
 				* explicit instantiation of A that occurs after an explicit specialization has no effect
 		* 그냥 이 방식은 안쓰는 것이 좋겠다-_-
 
-{% highlight cpp % }
+{% highlight cpp %}
 // test.h
 
 template <typename T>
