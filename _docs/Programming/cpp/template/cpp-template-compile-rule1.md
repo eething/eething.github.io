@@ -16,7 +16,7 @@ tags:
 
 함수 템플릿의 특수화
 ---
-	* 여러 cpp 에 include 되면 링크시 중복 에러(LNK2005)
+* 여러 cpp 에 include 되면 링크시 중복 에러(LNK2005)
 	* inline 을 붙여주면 OK
 		* 선언이나 정의 둘중에 한개만 해줘도 된다
 	* Precompiled Header 에 넣으면 한개만 생성되서 OK
@@ -26,10 +26,22 @@ template <typename T> void foo(T t) {}
 
 // LNK2005, 여러 cpp 에 정의가 됨
 // Precompiled Header 에 넣으면 한개만 생성되서 OK
-template <> void foo(int t) {}
+// template <> void foo(int t) {}
 
 // OK
 template <> inline void foo(int t) {}
+{% endhighlight %}
+* 함수 템플릿은 부분특수화 불가
+	* 오버로딩 은 가능
+{% highlight cpp %}
+// func.h
+template <typename T> void foo(T t) {}
+
+// C2768, 명시적 템플릿 인수를 잘못 사용하였습니다.
+// template <typename T> void foo<T*>(T* t) {}
+
+// OK, 오버로딩
+template <typename T> void foo(T* t) {}
 {% endhighlight %}
 
 
