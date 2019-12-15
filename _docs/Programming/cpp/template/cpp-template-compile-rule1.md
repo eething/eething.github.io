@@ -1,5 +1,5 @@
 ---
-title: "C++ 템플릿 - 컴파일"
+title: "C++ 템플릿 - 컴파일 1"
 date: 2019-05-20 15:30:00 +0900
 tags:
   - programming
@@ -47,9 +47,9 @@ template <typename T> void foo(T* t) {}
 
 클래스 템플릿의 특수화
 ---
-* "class { ... };" 는 클래스의 선언 이다.
+* ```class { ... };``` 는 클래스의 선언 이다.
 * 클래스 자체를 특수화
-	* template <> class TEST<int> { ... };
+	* ```template <> class TEST<int> { ... };```
 	* 특수화 된 클래스는 아예 다른 클래스라고 생각하면 됨
 
 
@@ -105,11 +105,11 @@ void TEST<int>::bar()
 		* 다른 파일에 정의를 하면 기본 템플릿이 호출됨
 			* instantiation 이 안되기 때문
 		* 아래와 같이 선언을 해주면 특수화 버전을 찾음
-			* template <> void TEST<int>foo();
+			* ```template <> void TEST<int>::foo();```
 			* caller cpp 에서 선언을 인식하는 것이 중요
 		* 그럼에도 불구하고 없을 수 있음
 			* 명시적 instantiation 을 해줘야 함
-			* template void TEST<int>::foo();
+			* ```template void TEST<int>::foo();```
 		* 문제점
 			* cpp 여러군데에 넣으면 에러가 나지 않고
 			* 어느 것이 instantiation 이 될지 알 수 없음
@@ -117,7 +117,6 @@ void TEST<int>::bar()
 				* -Winstantiation-after-specialization
 				* explicit instantiation of A that occurs after an explicit specialization has no effect
 		* 그냥 이 방식은 안쓰는 것이 좋겠다-_-
-
 {% highlight cpp %}
 // test.h
 
