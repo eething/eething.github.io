@@ -12,8 +12,13 @@ C++17
 제거됨
 ---
 * 삼중자
-	* ```??= (#), ??/ (\), ??' (^), ??( ([), ??) (]), ??! (|), ??< ({), ??> (}), ??- (~)
-	```
+	* ```??= (#), ??/ (\), ??' (^)```
+	* ```??( ([), ??) (]), ??! (|)```
+	* ```??< ({), ??> (}), ??- (~)```
+	* {% highlight cpp %}
+	yoyohoho
+	asdfasfd
+	{% endhighlight %}
 * std::auto_ptr
 * std::random_shuffle
 * 오래된 function adaptors // <functional>
