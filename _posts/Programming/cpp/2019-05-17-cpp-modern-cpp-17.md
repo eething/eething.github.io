@@ -15,10 +15,6 @@ C++17
 	* ```??= (#), ??/ (\), ??' (^)```
 	* ```??( ([), ??) (]), ??! (|)```
 	* ```??< ({), ??> (}), ??- (~)```
-	* ```c++
-	yoyohoho
-	asdfasfd
-	{% endhighlight %}
 * std::auto_ptr
 * std::random_shuffle
 * 오래된 function adaptors // <functional>
@@ -33,9 +29,10 @@ C++17
 
 * template template parameter 에서 class 대신 typename 사용가능
 {% highlight cpp %}
-template<typename T> class Test {};
+template <typename T> class Test {};
 
-template<typename U, template<typename> /*class*/ typename C = Test>
+//template <typename U, template<typename> class C = Test>
+template <typename U, template<typename> typename C = Test>
 class TTP
 {
 	C<U> data;
@@ -201,7 +198,7 @@ void foo()
 {% highlight cpp %}
 #include <optional>
 
-std::optional<int> foo( std::optional<float> input = nullopt )
+std::optional<int> foo(std::optional<float> input = nullopt)
 {
 	if( input )
 		return static_cast<int>(*input);
@@ -229,7 +226,7 @@ int main()
 
 * contiguous iterators
 	* random access iterators 의 재정의?
-	* *(iter + 3) == *(&(*iter) + 3)
+	* ```*(iter + 3) == *(&(*iter) + 3)```
 
 * boost::filesystem
 
@@ -246,7 +243,7 @@ int main()
 {% highlight cpp %}
 #include <type_traits>
 
-template<typename A, typename B, typename C>
+template <typename A, typename B, typename C>
 void foo(A a, B b, C c)
 {
 	if( conjunction<is_same<A, B>, negation<is_same<B, C>>>::value )
