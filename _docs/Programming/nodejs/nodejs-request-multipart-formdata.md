@@ -15,7 +15,7 @@ tags:
 	* request/request.js
 	* form-data/lib/form_data.js
 * 참고자료
-	* [참고자료 1] (https://gist.github.com/tanaikech/40c9284e91d209356395b43022ffc5cc)
+	* [참고자료 1](https://gist.github.com/tanaikech/40c9284e91d209356395b43022ffc5cc)
 
 
 HTTP 구성
@@ -24,7 +24,7 @@ HTTP 구성
 	* Content-Type: multipart/form-data; boundary=myboundary
 	* Content-Length: xxx
 * body
-```
+{% highlight %}
 --myboundary\r\n
 Content-Disposition: form-data; name="key"\r\n
 \r\n
@@ -34,7 +34,7 @@ Content-Type: image/jpeg\r\n
 \r\n
 ?? JFIF쿺?......쒐%cZt6쐂春찭?溶友\r\n
 --myboundary--\r\n
-```
+{% endhighlight %}
 
 코드 예제
 ---
@@ -84,7 +84,7 @@ formData 로 body 를 만드는 과정
 	* append(_multiPartHeader(field, value, options))
 		* --myboundary--\r\n
 		* Content-Disposition: form-data; name="key";// filename="fn"
-			* `filename="${filename}"`	
+			* filename="${filename}"
 				1. path.normalize(options.filepath).replace( /\\/g, '/');
 				2. ```path.basename(options.filename || value.name || value.path);```
 				3. path.basename(value.client._httpMessage.path) // if value.readable && value.hasOwnProperty('httpVersion')
@@ -128,8 +128,6 @@ formData = {
 	}
 };
 {% endhighlight %}
-
-
 
 
 실제 수행 결과
@@ -187,7 +185,7 @@ formData: {
 {% endhighlight %}
 
 * 결과
-{% highlight javascript %}
+{% highlight %}
 --myboundary\r\n
 Content-Disposition: form-data; name="key1"\r\n
 \r\n
