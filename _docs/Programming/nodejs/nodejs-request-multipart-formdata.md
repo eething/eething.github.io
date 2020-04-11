@@ -86,15 +86,15 @@ formData 로 body 를 만드는 과정
 		* Content-Disposition: form-data; name="key";// filename="fn"
 			* `filename="${filename}"`	
 				1. path.normalize(options.filepath).replace( /\\/g, '/');
-				2. path.basename(options.filename || value.name || value.path);
+				2. ```path.basename(options.filename || value.name || value.path);```
 				3. path.basename(value.client._httpMessage.path) // if value.readable && value.hasOwnProperty('httpVersion')
 		* // Content-Type: ...
 			1. options.contentType
 			2. mime.lookup(value.name)
 			3. mime.lookup(value.path)
 			4. value.headers['content-type'] // if value.readable && value.hasOwnProperty('httpVersion')
-			5. mime.lookup(options.filepath || options.filename)
-			6. 'application/octet-stream' // if value is object
+			5. ```mime.lookup(options.filepath || options.filename)```
+			6. application/octet-stream // if value is object
 		* \r\n
 	* append(value)
 	* append(_multiPartFooter())
@@ -187,7 +187,7 @@ formData: {
 {% endhighlight %}
 
 * 결과
-```
+{% highlight javascript %}
 --myboundary\r\n
 Content-Disposition: form-data; name="key1"\r\n
 \r\n
@@ -244,4 +244,4 @@ key5 has value { value: string, options: { filename, contentType } }\r\n
 	*/
 
 --myboundary--\r\n
-```
+{% endhighlight %}
