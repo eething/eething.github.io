@@ -24,7 +24,7 @@ HTTP 구성
 	* Content-Type: multipart/form-data; boundary=myboundary
 	* Content-Length: xxx
 * body
-{% highlight %}
+{% highlight text %}
 --myboundary\r\n
 Content-Disposition: form-data; name="key"\r\n
 \r\n
@@ -185,7 +185,7 @@ formData: {
 {% endhighlight %}
 
 * 결과
-{% highlight %}
+{% highlight text %}
 --myboundary\r\n
 Content-Disposition: form-data; name="key1"\r\n
 \r\n
