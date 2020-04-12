@@ -26,7 +26,7 @@ HTTP 패킷 구성
 	* Content-Type: multipart/form-data; boundary=myboundary
 	* Content-Length: xxx
 * body
-	{% highlight text %}
+{% highlight text %}
 --myboundary\r\n
 Content-Disposition: form-data; name="key"\r\n
 \r\n
@@ -51,7 +51,11 @@ async function upload(options) {
 		method: 'POST',
 		formData : {
 			key: 'value',
-			file: focreateReadStream
+			file: {
+				// value: fs.readFileSync('fn.jpg'),
+				value: fs.createReadStream('fn.jpg'),
+				options: 'fn.jpg'
+			}
 		},
 
 	/*	formData 를 쓰면 header 는 알아서 만들어 준다.
@@ -102,7 +106,10 @@ formData 로 body 를 만드는 과정
 		* \r\n or \r\n--myboundary--\r\n
 
 * 코드를 보면 formData 를 대략 이런 식으로 만들어서 넣어주면 되는 듯 하다.
-	* 사실은 아님 ㅋ
+	* 사실은 아님 ㅋ, value 가 object 인 경우 에러가 남
+	* contentDisposition 이나 contentType 을 만들때 value.name, value.path 등을 참조하려고 하는 코드는 의미가 없어짐
+	* FormData가 CombinedStream 를 상속받게 되어 있는데 object 를 streaming 하지 못함
+
 {% highlight javascript %}
 formData = {
 	...
@@ -133,9 +140,6 @@ formData = {
 
 실제 수행 결과
 ---
-* contentDisposition 이나 contentType 을 만들때 value.name, value.path 등을 참조하려고 하지만 의미가 없다.
-* value 가 object 인 경우 에러가 남
-
 {% highlight javascript %}
 formData: {
 	// 단순 key - value: string
