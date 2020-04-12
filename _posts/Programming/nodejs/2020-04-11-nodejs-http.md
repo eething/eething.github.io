@@ -15,5 +15,5 @@ request(request-promise)
 
 * multipart
 	* [formData 를 활용]({% link _docs/Programming/nodejs/nodejs-request-multipart-formdata.md %})
-	* multipart 를 활용
+	* [multipart 를 활용]({% link _docs/Programming/nodejs/nodejs-request-multipart-multipart.md %})
 		* multipart/related
