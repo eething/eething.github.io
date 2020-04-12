@@ -91,7 +91,7 @@ multipart 로 body 를 만드는 과정
 		* \r\n // postambleCRLF
 
 * options - multipart 구성
-	* [https://github.com/request/multipart] 을 보면 아래와 같이 사용하라고 설명되어 있지만 좀 이상하다?
+	* [여기](https://github.com/request/multipart)를 보면 설명이 있지만 좀 이상하다?
 	* object 도 되는 것처럼 되어 있지만 무적권 array 여야 함
 	* body 는 무적권 있어야 함
 
