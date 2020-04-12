@@ -76,9 +76,9 @@ multipart 로 body 를 만드는 과정
 	* self._multipart = new Multipart(self)
 	* self._multipart.onRequest(options.multipart)
 
-* request/lib/multipart.js
-	* var parts = options.data || options
-	* self.setHeaders(chunked)
+* request/lib/multipart.js - onRequest(options)
+	* var parts = options.data, options
+	* self.setHeaders(chunked) // multipart/related
 	* self.body = self.build(parts, chunked)
 		* \r\n // preambleCRLF
 		* for
@@ -91,7 +91,7 @@ multipart 로 body 를 만드는 과정
 		* \r\n // postambleCRLF
 
 * options - multipart 구성
-	* [참고자료 1] 을 보면 아래와 같이 사용하라고 설명되어 있지만 좀 이상하다?
+	* [https://github.com/request/multipart] 을 보면 아래와 같이 사용하라고 설명되어 있지만 좀 이상하다?
 	* object 도 되는 것처럼 되어 있지만 무적권 array 여야 함
 	* body 는 무적권 있어야 함
 
@@ -132,14 +132,17 @@ multipart: {
 {% highlight javascript %}
 options = {
 	multipart: [
-		{ key1: 'value1', body: 'body1' },
-		{ key2: ['value2-1', 'value2-2'], body: 'body2' },
+		{ key1: 'value1', key2: 'value2', body: 'body1' },
+
+		{ keyarr: [ 'this', 'is', 'array'], body: 'body2' },
+
 		{ body: 'bodyonly' },
 
 		{
 			'Content-Disposition': 'form-data; name="key3"',
 			body: 'value3'
 		},
+
 		{
 			'Content-Disposition': 'form-data; name="file"; filename="fn.jpg"',
 			'Content-Type': 'image/jpeg',
@@ -157,10 +160,11 @@ options = {
 \r\n
 --myboundary\r\n
 key1: value1\r\n
+key2: value2\r\n
 \r\n
 body1\r\n
 --myboundary\r\n
-key2: value2-1,value2-2\r\n
+keyarr: this,is,array\r\n
 \r\n
 body2\r\n
 --myboundary\r\n
