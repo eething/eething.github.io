@@ -10,21 +10,23 @@ tags:
 
 코드분석을 통해 알아보는 multipart 구조 분석
 ===
-* 코드
+
+* npm 설치
 	* npm i request, request-promise
+* 분석 코드
 	* request/request.js
 	* form-data/lib/form_data.js
 * 참고자료
 	* [참고자료 1](https://gist.github.com/tanaikech/40c9284e91d209356395b43022ffc5cc)
 
 
-HTTP 구성
+HTTP 패킷 구성
 ---
 * header
 	* Content-Type: multipart/form-data; boundary=myboundary
 	* Content-Length: xxx
 * body
-{% highlight text %}
+	{% highlight text %}
 --myboundary\r\n
 Content-Disposition: form-data; name="key"\r\n
 \r\n
@@ -83,17 +85,16 @@ formData 로 body 를 만드는 과정
 	* if (typeof options == 'string') options = { filename: options };
 	* append(_multiPartHeader(field, value, options))
 		* --myboundary--\r\n
-		* Content-Disposition: form-data; name="key";// filename="fn"
-			* filename="${filename}"
-				1. path.normalize(options.filepath).replace( /\\/g, '/');
-				2. ```path.basename(options.filename || value.name || value.path);```
-				3. path.basename(value.client._httpMessage.path) // if value.readable && value.hasOwnProperty('httpVersion')
+		* Content-Disposition: form-data; name="key"//; filename="fn"
+			1. options.filepath
+			2. options.filename, value.name, value.path
+			3. value.client._httpMessage.path // if value.readable && value.hasOwnProperty('httpVersion')
 		* // Content-Type: ...
 			1. options.contentType
 			2. mime.lookup(value.name)
 			3. mime.lookup(value.path)
 			4. value.headers['content-type'] // if value.readable && value.hasOwnProperty('httpVersion')
-			5. ```mime.lookup(options.filepath || options.filename)```
+			5. mime.lookup(options.filepath), mime.lookup(options.filename)
 			6. application/octet-stream // if value is object
 		* \r\n
 	* append(value)
@@ -101,7 +102,7 @@ formData 로 body 를 만드는 과정
 		* \r\n or \r\n--myboundary--\r\n
 
 * 코드를 보면 formData 를 대략 이런 식으로 만들어서 넣어주면 되는 듯 하다.
-* 사실은 아님 ㅋ
+	* 사실은 아님 ㅋ
 {% highlight javascript %}
 formData = {
 	...
